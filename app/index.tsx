@@ -1,11 +1,14 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { Image, SafeAreaView, Text, TouchableOpacity } from "react-native";
 
 const App = () => {
   return (
-    <View className="flex-1">
-      <Text>Quiz App</Text>
-    </View>
+    <SafeAreaView className="flex-1 justify-center items-center ">
+      <Image source={require("@/assets/images/quiz-image.png")} />
+      <Text className="text-3xl font-bold p-5 ">Welcome to the Quiz App</Text>
+      <TouchableOpacity className="border border-black rounded-lg p-3">
+        <Text className="font-semibold text-lg">Start Quiz</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 };
 
