@@ -1,6 +1,8 @@
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { quizQuestions } from "@/constants/questions";
+import { router } from "expo-router";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 const shuffleQuestions = (array: any[]) => {
   return array.sort(() => Math.random() - 0.5);
@@ -8,30 +10,60 @@ const shuffleQuestions = (array: any[]) => {
 
 const QuestionPage = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [quizCompleted, setQuizCompleted] = useState(false);
 
   useEffect(() => {
     const shuffled = shuffleQuestions(quizQuestions).slice(0, 20);
     setShuffledQuestions(shuffled);
   }, []);
 
+  const handleNextQuestion = (selectedAnswer: string) => {
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    const isCorrect = selectedAnswer === currentQuestion.correctOption;
+
+    if (currentQuestionIndex + 1 < shuffledQuestions.length) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      setQuizCompleted(true);
+      router.push("/result");
+    }
+  };
+
+  if (shuffledQuestions.length === 0) {
+    return (
+      <SafeAreaView className="flex-1 justify-center items-center">
+        <Text>Loading questions...</Text>
+      </SafeAreaView>
+    );
+  }
+
+  const currentQuestion = shuffledQuestions[currentQuestionIndex];
+
   return (
     <SafeAreaView className="flex-1 flex-col justify-center items-center p-5">
-      <View className="p-12 w-34">
-        <Text className="font-bold text-3xl">Question</Text>
-      </View>
-
-      <View className="m-2 p-4">
-        <Text className="p-3 text-lg">Option 1</Text>
-        <Text className="p-3 text-lg">Option 2</Text>
-        <Text className="p-3 text-lg">Option 3</Text>
-        <Text className="p-3 text-lg">Option 4</Text>
-      </View>
-
-      <TouchableOpacity className="mt-44 border rounded-lg bg-emerald-400 px-10 py-4">
-        <Text>Next</Text>
+      <TouchableOpacity
+        onPress={() => router.back()}
+        style={{ position: "absolute", top: 80, left: 20 }}
+      >
+        <AntDesign name="left" size={24} color="black" />
       </TouchableOpacity>
+      <View className="p-12 w-34">
+        <Text className="font-bold text-3xl text-center">
+          {currentQuestion.question}
+        </Text>
+      </View>
+
+      {currentQuestion.options.map((option: string, index: number) => (
+        <TouchableOpacity
+          key={index}
+          className="bg-gray-200 border border-gray-400 rounded-lg p-5 mb-5 w-3/4"
+          onPress={() => handleNextQuestion(option)}
+        >
+          <Text>{option}</Text>
+        </TouchableOpacity>
+      ))}
     </SafeAreaView>
   );
 };
-
 export default QuestionPage;
