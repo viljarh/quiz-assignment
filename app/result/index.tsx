@@ -16,7 +16,7 @@ const ResultPage = () => {
 
   return (
     <SafeAreaView className="flex-1 p-4 mt-10 items-center">
-      <Text className="text-3xl font-bold mb-3">Quiz Completed!</Text>
+      <Text className="text-3xl font-bold mb-3">Quiz Completed</Text>
       <Text className="font-semibold text-gray-700 text-lg">
         Score: {score} of 20
       </Text>
@@ -41,10 +41,12 @@ const ResultPage = () => {
       </ScrollView>
 
       <TouchableOpacity
-        className="bg-blue-300 mt-5 p-5 rounded-lg"
-        onPress={() => router.push("/")}
+        className="bg-gray-400 mt-5 p-5 rounded-lg"
+        onPress={() => {
+          router.push("/");
+        }}
       >
-        <Text className="font-bold">Back to Home Page</Text>
+        <Text className="font-bold">Close</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
