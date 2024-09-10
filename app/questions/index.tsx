@@ -12,6 +12,8 @@ const QuestionPage = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [userAnswers, setUserAnswers] = useState<any[]>([]);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const shuffled = shuffleQuestions(quizQuestions).slice(0, 20);
@@ -22,11 +24,39 @@ const QuestionPage = () => {
     const currentQuestion = shuffledQuestions[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.correctOption;
 
+    setUserAnswers([
+      ...userAnswers,
+      {
+        question: currentQuestion.question,
+        selectedAnswer,
+        correctUserAnswer: currentQuestion.correctOption,
+        isCorrect,
+      },
+    ]);
+
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+
     if (currentQuestionIndex + 1 < shuffledQuestions.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       setQuizCompleted(true);
-      router.push("/result");
+      router.push({
+        pathname: "/result",
+        params: {
+          score: score + (isCorrect ? 1 : 0),
+          userAnswers: JSON.stringify([
+            ...userAnswers,
+            {
+              question: currentQuestion.question,
+              selectedAnswer,
+              correctAnswer: currentQuestion.correctOption,
+              isCorrect,
+            },
+          ]),
+        },
+      });
     }
   };
 
