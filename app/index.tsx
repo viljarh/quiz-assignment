@@ -1,7 +1,6 @@
 import { Text, View, StyleSheet, Dimensions } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NativeWindStyleSheet } from "nativewind";
-import React from "react";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
