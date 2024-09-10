@@ -1,12 +1,34 @@
-import { View, Text } from "react-native";
+import { Text, View, StyleSheet, Dimensions } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { NativeWindStyleSheet } from "nativewind";
 import React from "react";
 
-const App = () => {
-  return (
-    <View className="flex-1">
-      <Text>Quiz App</Text>
-    </View>
-  );
-};
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
 
-export default App;
+export default function Index() {
+  const styles = StyleSheet.create({
+    fullScreen: {
+      width: Dimensions.get("window").width,
+      height: Dimensions.get("window").height,
+    },
+  });
+
+
+  const viewStyles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  });
+
+  return (
+    <SafeAreaProvider>
+      <View style={viewStyles.container}>
+        <Text>Edit app/index.tsx to edit this screen.</Text>
+      </View>
+    </SafeAreaProvider>
+  );
+}
