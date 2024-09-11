@@ -1,8 +1,8 @@
-import { Text, View, StyleSheet, Dimensions, Button } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NativeWindStyleSheet } from "nativewind";
 import { LinearGradient } from "expo-linear-gradient";
-import { Link } from "expo-router";
+import { Link, Href } from "expo-router";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -44,7 +44,7 @@ export default function Index() {
           style={styles.gradient}
         >
           <Text style={styles.textStyles}>This is the quiz app.</Text>
-          <Link href="/nextpage" style={styles.button}>Start Quiz</Link>
+          <Link href={"/firstpage" as Href<string | object>} style={styles.button}>Start Quiz</Link>
         </LinearGradient>
       </View>
     </SafeAreaProvider>
