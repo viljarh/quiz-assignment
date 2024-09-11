@@ -8,12 +8,7 @@ NativeWindStyleSheet.setOutput({
 });
 
 export default function Index() {
-  const styles = StyleSheet.create({
-    fullScreen: {
-      width: Dimensions.get("window").width,
-      height: Dimensions.get("window").height,
-    },
-  });
+  
   const gradientStyles = StyleSheet.create({
     container: {
       flex: 1,
@@ -32,6 +27,13 @@ export default function Index() {
     },
   });
 
+  const textStyles = StyleSheet.create({
+    container: {
+      fontSize: 14,
+      color: "white",
+    }
+  })
+
   return (
     <SafeAreaProvider>
       <View style={viewStyles.container}>
@@ -41,7 +43,7 @@ export default function Index() {
           end={[1, 1]}
           style={gradientStyles.container}
         >
-        <Text>Edit app/index.tsx to edit this screen.</Text>
+        <Text style={textStyles.container}>Edit app/index.tsx to edit this screen.</Text>
         </LinearGradient>
       </View>
     </SafeAreaProvider>
