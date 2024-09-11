@@ -3,37 +3,14 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NativeWindStyleSheet } from "nativewind";
 import { LinearGradient } from "expo-linear-gradient";
 import { Link, Href } from "expo-router";
+import styles from "@/constants/Styles";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
 
 export default function Index() {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    textStyles: {
-      fontSize: 14,
-      color: "white",
-    },
-    gradient: {
-      flex: 1,
-      width: "100%",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    button: {
-      color: "white",
-      backgroundColor: "black",
-      padding: 10,
-      borderRadius: 5,
-      marginTop: 10,
-    },
-  });
-
+  
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
