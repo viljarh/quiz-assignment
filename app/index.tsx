@@ -25,6 +25,13 @@ export default function Index() {
       justifyContent: "center",
       alignItems: "center",
     },
+    button: {
+      color: "white",
+      backgroundColor: "black",
+      padding: 10,
+      borderRadius: 5,
+      marginTop: 10,
+    },
   });
 
   return (
@@ -37,7 +44,7 @@ export default function Index() {
           style={styles.gradient}
         >
           <Text style={styles.textStyles}>This is the quiz app.</Text>
-          <Link href="/nextpage">Start Quiz</Link>
+          <Link href="/nextpage" style={styles.button}>Start Quiz</Link>
         </LinearGradient>
       </View>
     </SafeAreaProvider>
