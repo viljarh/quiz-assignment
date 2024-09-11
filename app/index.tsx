@@ -9,41 +9,35 @@ NativeWindStyleSheet.setOutput({
 
 export default function Index() {
   
-  const gradientStyles = StyleSheet.create({
+  const styles = StyleSheet.create({
     container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    textStyles: {
+      fontSize: 14,
+      color: "white",
+
+    },
+    gradient: {
       flex: 1,
       width: "100%",
       justifyContent: "center",
       alignItems: "center",
-    },
-  });
-
-
-  const viewStyles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-  });
-
-  const textStyles = StyleSheet.create({
-    container: {
-      fontSize: 14,
-      color: "white",
     }
   })
 
   return (
     <SafeAreaProvider>
-      <View style={viewStyles.container}>
+      <View style={styles.container}>
       <LinearGradient
           colors={["#2193b0", "#6dd5ed",]}
           start={[0, 0]}
           end={[1, 1]}
-          style={gradientStyles.container}
+          style={styles.gradient}
         >
-        <Text style={textStyles.container}>Edit app/index.tsx to edit this screen.</Text>
+        <Text style={styles.textStyles}>Edit app/index.tsx to edit this screen.</Text>
         </LinearGradient>
       </View>
     </SafeAreaProvider>
