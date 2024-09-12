@@ -8,16 +8,20 @@ const firstpage = () => {
   const question = "What does React Native use instead of css?";
 
   const correctAnswer = "Javascript";
-
-  
+  const wrongAnswers = ["HTML", "CSS", "XML"];
+  const allAnswers = [correctAnswer, ...wrongAnswers].sort(
+    () => Math.random() - 0.5
+  );
 
   return (
     <SafeAreaProvider>
-      <View style= {styles.container}>
+      <View style={styles.container}>
         <Text>{question}</Text>
-        <Link href={"/secondpage"} style={styles.button}>
-          Alternative 1
-        </Link>
+        {allAnswers.map((answer, index) => (
+          <Link key={index} href={"/secondpage"} style={styles.button}>
+            {answer}
+          </Link>
+        ))}
       </View>
     </SafeAreaProvider>
   );
