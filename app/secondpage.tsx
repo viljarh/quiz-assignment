@@ -1,5 +1,6 @@
-import {View, Text} from 'react-native'
+import { View, Text } from 'react-native'
 import styles from "@/constants/Styles";
+import { Link } from 'expo-router'
 
 const secondpage = () => {
 
@@ -17,9 +18,9 @@ const secondpage = () => {
     <View style={styles.container}>
         <Text>{question2}</Text>
         {allAnswers2.map((answer, index) => (
-          <Text key={index} style={styles.button}>
+          <Link key={index} href="/thirdquestion" style={styles.button}>
             {answer}
-          </Text>
+          </Link>
         ))}
     </View>
   )

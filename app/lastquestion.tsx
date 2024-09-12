@@ -16,7 +16,7 @@ const lastquestion = () => {
     );
 
   return (
-    <View>
+    <View style={styles.container}>
         <Text>{question6}</Text>
         {allAnswers6.map((answer, index) => (
             <Link key={index} href="/summary" style={styles.button}>

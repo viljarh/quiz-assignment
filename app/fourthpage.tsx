@@ -16,7 +16,7 @@ const fourthpage = () => {
     );
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{question4}</Text>
         {allAnswers4.map((answer, index) => (
             <Link key={index} href="/fifthquestion" style={styles.button}>

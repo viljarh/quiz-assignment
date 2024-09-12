@@ -15,7 +15,7 @@ const fifthquestion = () => {
     );
 
   return (
-    <View>
+    <View style={styles.container}>
         <Text>{question5}</Text>
         {allAnswers5.map((answer, index) => (
             <Link key={index} href="/lastquestion" style={styles.button}>
