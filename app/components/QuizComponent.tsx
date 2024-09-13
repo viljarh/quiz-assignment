@@ -62,7 +62,7 @@ const QuizComponent = () => {
         </View>
       ) : (
         <View>
-          <Text style={styles.textStyles}>
+          <Text style={summaryStyles.scoreText}>
             {randomOptions[currentQuestionIndex].question}
           </Text>
           {randomOptions[currentQuestionIndex].options.map((answer, index) => (
