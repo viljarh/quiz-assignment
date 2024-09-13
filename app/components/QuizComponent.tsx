@@ -2,6 +2,7 @@ import { View, Text, Button, Pressable } from "react-native";
 import { useState } from "react";
 import quizData from "../data/QuizData";
 import styles from "@/constants/Styles";
+import { StyleSheet } from "react-native";
 
 const QuizComponent = () => {
   const allQuestions = quizData;
@@ -32,12 +33,12 @@ const QuizComponent = () => {
   const displaySummary = quizData.map((question, index) => {
     return (
       <View key={index}>
-        <Text>
+        <Text style={summaryStyles.summaryQuestions}>
           Question {index + 1}:{quizData[index].question}
         </Text>
-        <Text>
+        <Text style={summaryStyles.correctAnswerLine}>
           Correct Answer:
-          {quizData[index].correct}
+          {" "}{quizData[index].correct}
         </Text>
       </View>
     );
@@ -53,9 +54,11 @@ const QuizComponent = () => {
     <View style={styles.container}>
       {quizOver ? (
         <View>
-          <Text>Quiz Over! Your score is {score}.</Text>
+          <Text style={summaryStyles.scoreText}>You scored {score}/6 points.</Text>
           {displaySummary}
-          <Button title="Restart Quiz" onPress={restartQuiz} />
+          <Pressable onPress={restartQuiz} style={styles.button}>
+            <Text style={styles.textStyles}>Restart Quiz</Text>
+          </Pressable>
         </View>
       ) : (
         <View>
@@ -72,5 +75,24 @@ const QuizComponent = () => {
     </View>
   );
 };
+
+const summaryStyles = StyleSheet.create({
+  scoreText: {
+
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    
+  },
+  summaryQuestions: {
+    textAlign: "center",
+    fontSize: 16,
+  },
+  correctAnswerLine: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 16,
+  }
+});
 
 export default QuizComponent;
