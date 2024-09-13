@@ -10,6 +10,14 @@ const QuizComponent = () => {
 
   const [quizOver, setQuizOver] = useState(false);
 
+
+  const randomOptions = quizData.map((question) => {
+    return {
+      ...question,
+      options: question.options.sort(() => Math.random() - 0.5),
+    };
+  });
+
   const handleAnswer = (selectedAnswer: string) => {
     if (selectedAnswer === allQuestions[currentQuestionIndex].correct) {
       setScore(score + 1);
@@ -53,8 +61,8 @@ const QuizComponent = () => {
         </View>
       ) : (
         <View>
-          <Text>{allQuestions[currentQuestionIndex].question}</Text>
-          {allQuestions[currentQuestionIndex].options.map((answer, index) => (
+          <Text>{randomOptions[currentQuestionIndex].question}</Text>
+          {randomOptions[currentQuestionIndex].options.map((answer, index) => (
             <Button
               key={index}
               title={answer}
