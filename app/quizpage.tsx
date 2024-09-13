@@ -14,7 +14,6 @@ const firstpage = () => {
           end={[1, 1]}
           style={styles.gradient}
         >
-          <Text style={styles.textStyles}>Click an option</Text>
           <QuizComponent />
         </LinearGradient>
       </View>
