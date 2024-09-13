@@ -1,4 +1,4 @@
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, Pressable } from "react-native";
 import { useState } from "react";
 import quizData from "../data/QuizData";
 import styles from "@/constants/Styles";
@@ -63,11 +63,9 @@ const QuizComponent = () => {
             {randomOptions[currentQuestionIndex].question}
           </Text>
           {randomOptions[currentQuestionIndex].options.map((answer, index) => (
-            <Button
-              key={index}
-              title={answer}
-              onPress={() => handleAnswer(answer)}
-            />
+            <Pressable onPress={() => handleAnswer(answer)} style={styles.button}>
+              <Text key={index} style={styles.textStyles}>{answer}</Text>
+            </Pressable>
           ))}
         </View>
       )}

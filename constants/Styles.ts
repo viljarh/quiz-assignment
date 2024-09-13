@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
       textStyles: {
         fontSize: 14,
         color: "white",
+        textAlign: "center",
       },
       gradient: {
         flex: 1,

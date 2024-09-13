@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import styles from "@/constants/Styles";
 import QuizComponent from "./components/QuizComponent";
