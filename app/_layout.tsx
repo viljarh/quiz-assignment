@@ -4,8 +4,7 @@ export default function RootLayout() {
   return (
     <Stack>
       <Stack.Screen name="index" options={{headerShown: false}}/>
-      <Stack.Screen name="firstpage" options={{headerShown: false}}/>
-      <Stack.Screen name="secondpage" options={{headerShown: false}}/>
+      <Stack.Screen name="quizpage" options={{headerShown: false}}/>
     </Stack>
   );
 }
