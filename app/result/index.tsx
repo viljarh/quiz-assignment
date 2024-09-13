@@ -41,7 +41,7 @@ const ResultPage = () => {
       </ScrollView>
 
       <TouchableOpacity
-        className="bg-gray-400 mt-5 p-5 rounded-lg"
+        className="bg-gray-200 mt-5 p-5 rounded-lg"
         onPress={() => {
           router.push("/");
         }}
