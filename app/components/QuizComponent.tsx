@@ -10,7 +10,6 @@ const QuizComponent = () => {
 
   const [quizOver, setQuizOver] = useState(false);
 
-
   const randomOptions = quizData.map((question) => {
     return {
       ...question,
@@ -52,7 +51,6 @@ const QuizComponent = () => {
 
   return (
     <View style={styles.container}>
-      <Text>QuizComponent</Text>
       {quizOver ? (
         <View>
           <Text>Quiz Over! Your score is {score}.</Text>
@@ -61,7 +59,9 @@ const QuizComponent = () => {
         </View>
       ) : (
         <View>
-          <Text>{randomOptions[currentQuestionIndex].question}</Text>
+          <Text style={styles.textStyles}>
+            {randomOptions[currentQuestionIndex].question}
+          </Text>
           {randomOptions[currentQuestionIndex].options.map((answer, index) => (
             <Button
               key={index}
