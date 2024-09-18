@@ -5,10 +5,12 @@ import { router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import * as Progress from "react-native-progress";
 
+// Function to shuffle the question order
 const shuffleQuestions = (array: any[]) => {
   return array.sort(() => Math.random() - 0.5);
 };
 
+// Question page
 const QuestionPage = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -16,15 +18,18 @@ const QuestionPage = () => {
   const [userAnswers, setUserAnswers] = useState<any[]>([]);
   const [score, setScore] = useState(0);
 
+  // Hook runs when it first loads to shuffle and select 20 questions
   useEffect(() => {
     const shuffled = shuffleQuestions(quizQuestions).slice(0, 20);
     setShuffledQuestions(shuffled);
   }, []);
 
+  // Handles what happens when user selects an answer
   const handleNextQuestion = (selectedAnswer: string) => {
     const currentQuestion = shuffledQuestions[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.correctOption;
 
+    // Updates the answers array with their selected answer
     setUserAnswers([
       ...userAnswers,
       {
@@ -35,10 +40,12 @@ const QuestionPage = () => {
       },
     ]);
 
+    // If the answer was correct the score updates
     if (isCorrect) {
       setScore(score + 1);
     }
 
+    // Checks if there is any more questions
     if (currentQuestionIndex + 1 < shuffledQuestions.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -61,11 +68,13 @@ const QuestionPage = () => {
     }
   };
 
+  // Gets the users progress percentage for the progressbar
   const progress =
     shuffledQuestions.length > 0
       ? (currentQuestionIndex + 1) / shuffledQuestions.length
       : 0;
 
+  // Loading message
   if (shuffledQuestions.length === 0) {
     return (
       <SafeAreaView className="flex-1 justify-center items-center">
@@ -74,6 +83,7 @@ const QuestionPage = () => {
     );
   }
 
+  // Gets the current question to display
   const currentQuestion = shuffledQuestions[currentQuestionIndex];
 
   return (

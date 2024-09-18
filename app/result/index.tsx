@@ -8,8 +8,12 @@ import {
 import React from "react";
 import { router, useLocalSearchParams } from "expo-router";
 
+// Result page, displays the users quiz result
 const ResultPage = () => {
+  // Gets the score and answer parameters from the quiz page
   const { score, userAnswers } = useLocalSearchParams();
+
+  // Parse the user ansers
   const parsedAnswer = Array.isArray(userAnswers)
     ? JSON.parse(userAnswers[0] || "[]")
     : JSON.parse(userAnswers || "[]");
