@@ -1,4 +1,4 @@
-import { router } from "expo-router";
+import { router, Href } from "expo-router";
 import { Image, SafeAreaView, Text, TouchableOpacity } from "react-native";
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
       <Image source={require("@/assets/images/quiz-image.png")} />
       <Text className="text-3xl font-bold p-5 ">Welcome to the Quiz App</Text>
       <TouchableOpacity
-        onPress={() => router.push("/questions")}
+        onPress={() => router.push("/questions" as Href<string | object>)}
         className="border border-black rounded-lg p-3"
       >
         <Text className="font-semibold text-lg">Start Quiz</Text>
