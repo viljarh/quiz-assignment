@@ -41,3 +41,9 @@ we chose React Native.
 ### Class diagram
 
 Class diagram can be found under /assets/UMLdiagram/
+
+### How to run the project
+
+1. Clone repository and `cd quiz-assignment`
+2. `npm install`
+3. `npx expo start`
