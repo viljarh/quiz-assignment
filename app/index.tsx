@@ -1,6 +1,7 @@
 import { router, Href } from "expo-router";
 import { Image, SafeAreaView, Text, TouchableOpacity } from "react-native";
 
+// Landing page for the applicaton
 const App = () => {
   return (
     <SafeAreaView className="flex-1 justify-center items-center ">
