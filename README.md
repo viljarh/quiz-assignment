@@ -37,3 +37,7 @@ app from the Udemy course, we built ours from scratch, which gave us a deeper un
 After completing our drafts, we reviewed each others drafts and provided feedback. We then selected one of the drafts to continue working on collaboratively.
 The main challenge we faced was that the project specifications were given in the Udemy course for Flutter, which we didn't use because
 we chose React Native.
+
+### Class diagram
+
+Class diagram can be found under /assets/UMLdiagram/
