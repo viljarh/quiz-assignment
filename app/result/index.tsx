@@ -43,7 +43,6 @@ const ResultPage = () => {
           </View>
         ))}
       </ScrollView>
-
       <TouchableOpacity
         className="bg-gray-200 mt-5 p-5 rounded-lg"
         onPress={() => {
