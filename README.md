@@ -9,9 +9,8 @@ In the result page the user can see their score and whether each answer was corr
 
 ### Features
 
-- Randomized quiz: Shuffles the 20 predefined questions
 - Multiple-choice: Users can choose from a set of options
-- Progress-bar: A bar at the top of the screen that shows the user how far they've progressed
+- Progress-bar: A bar at the top of the screen that shows the user how far they've progressed (Additional feature)
 - Result page: After quiz is completed, users are redirected to result page
 - Navigation: Users can navigate between screens
 
