@@ -40,7 +40,7 @@ we chose React Native.
 
 ### Class diagram
 
-Class diagram can be found under /assets/UMLdiagram/
+Class diagram can be found under /assets/diagrams/
 
 ### How to run the project
 
