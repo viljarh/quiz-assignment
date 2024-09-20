@@ -13,7 +13,7 @@ const ResultPage = () => {
   // Gets the score and answer parameters from the quiz page
   const { score, userAnswers } = useLocalSearchParams();
 
-  // Parse the user ansers
+  // Parse the user answers
   const parsedAnswer = Array.isArray(userAnswers)
     ? JSON.parse(userAnswers[0] || "[]")
     : JSON.parse(userAnswers || "[]");
